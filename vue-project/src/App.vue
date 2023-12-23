@@ -1,5 +1,7 @@
 <template>
-  <baklava-editor :view-model="baklava"/>
+  <div style="width: 90vw; height: 90vh">
+    <baklava-editor :view-model="baklava"/>
+  </div>
 </template>
 
 <script>
