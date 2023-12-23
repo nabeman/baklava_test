@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # デフォルトブランチを対象としたプッシュ時にで実行されます
   push:
-    branches: ['main']
+    branches: ['master']
 
   # Actions タブから手動でワークフローを実行できるようにします
   workflow_dispatch:
@@ -19,6 +19,10 @@ permissions:
 concurrency:
   group: 'pages'
   cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: vue-project
 
 jobs:
   # デプロイするだけなので、単一のデプロイジョブ
@@ -35,10 +39,8 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-          cache-dependency-path: './vue-project/package-lock.json'
       - name: Install dependencies
-        run: cd vue-project
-             npm install
+        run: npm install
       - name: Build
         run: npm run build
       - name: Setup Pages
