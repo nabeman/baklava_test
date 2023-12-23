@@ -20,10 +20,6 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 
-defaults:
-  run:
-    working-directory: vue-project
-
 jobs:
   # デプロイするだけなので、単一のデプロイジョブ
   deploy:
@@ -39,8 +35,10 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+          cache-dependency-path: './vue-project/package-lock.json'
       - name: Install dependencies
         run: npm install
+        working-directory: vue-project
       - name: Build
         run: npm run build
       - name: Setup Pages
