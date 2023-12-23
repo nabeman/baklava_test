@@ -37,7 +37,8 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './vue-project/package-lock.json'
       - name: Install dependencies
-        run: npm install
+        run: cd vue-project
+             npm install
       - name: Build
         run: npm run build
       - name: Setup Pages
