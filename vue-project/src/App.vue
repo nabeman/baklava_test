@@ -8,7 +8,7 @@ import { EditorComponent, useBaklava } from '@baklavajs/renderer-vue';
 import '@baklavajs/themes/dist/syrup-dark.css';
 
 // import Node
-import MyNode from "./components/MyNode"
+import MyNode from "./components/MyNode.js"
 
 export default defineComponent({
   components: {
